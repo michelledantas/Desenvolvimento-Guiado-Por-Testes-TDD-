@@ -8,6 +8,12 @@ public class TemperatureAnalyzer {
             if (input == null || input.trim().isEmpty()){
                 throw new IllegalArgumentException("Invalid input: null or empty");
             }
+
+            String[] itens = input.trim().split("\\s+");
+            if (itens.length!=7){
+                throw new IllegalArgumentException("Invalid input: must contain exactly 7 values");
+            }
+
             int[] temperature = Arrays.stream(input.split(" "))
                     .mapToInt(Integer::parseInt)
                     .toArray();
