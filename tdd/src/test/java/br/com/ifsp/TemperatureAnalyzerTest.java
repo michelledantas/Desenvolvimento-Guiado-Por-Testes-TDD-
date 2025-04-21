@@ -37,4 +37,14 @@ class TemperatureAnalyzerTest {
 
         assertEquals(expectedResult, result);
     }
+
+    @Test
+    void shouldReturnDaysAboveAverageForValidInputExample3(){
+        String input = "2 2 2 2 2 2 1";
+        int expectedResult = 6;
+
+        int result = temperatureAnalyzer.calculateDaysAboveAverage(input);
+
+        assertEquals(expectedResult, result);
+    }
 }
