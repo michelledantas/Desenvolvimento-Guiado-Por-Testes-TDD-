@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.MockitoAnnotations;
 
+import static org.assertj.core.api.AssertionsForClassTypes.assertThatExceptionOfType;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class TemperatureAnalyzerTest {
@@ -56,5 +57,15 @@ class TemperatureAnalyzerTest {
         int result = temperatureAnalyzer.calculateDaysAboveAverage(input);
 
         assertEquals(expectedResult,result);
+    }
+
+    @Test
+    void shouldReturnErrorForInvalidInputFormat(){
+        String input = "2 2 2 2 2 2 abc";
+
+        assertThatThrownBy(() -> temperatureAnalyzer.calculateDaysAboveAverage(input))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("Invalid input: contains non-numeric values");
+
     }
 }
