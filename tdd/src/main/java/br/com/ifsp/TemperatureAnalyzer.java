@@ -5,6 +5,9 @@ import java.util.Arrays;
 public class TemperatureAnalyzer {
     public Object calculateDaysAboveAverage(String input) throws Exception {
         try{
+            if (input == null || input.trim().isEmpty()){
+                throw new IllegalArgumentException("Invalid input: null or empty");
+            }
             int[] temperature = Arrays.stream(input.split(" "))
                     .mapToInt(Integer::parseInt)
                     .toArray();
