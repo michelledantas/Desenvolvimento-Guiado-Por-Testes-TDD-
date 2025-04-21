@@ -47,4 +47,14 @@ class TemperatureAnalyzerTest {
 
         assertEquals(expectedResult, result);
     }
+
+    @Test
+    void shouldHandleNegativeTemperaturesCorrectly(){
+        String input = "-5 -10 0 5 10 15 20";
+        int expectedResult = 3;
+
+        int result = temperatureAnalyzer.calculateDaysAboveAverage(input);
+
+        assertEquals(expectedResult,result);
+    }
 }
