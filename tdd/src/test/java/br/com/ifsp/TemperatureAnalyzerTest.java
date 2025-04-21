@@ -80,6 +80,16 @@ class TemperatureAnalyzerTest {
     }
 
     @Test
+    void shouldReturnIllegalArgumentExceptionForInvalidInputFormatWhenInputIsNull(){
+        String input = null;
+
+        assertThatThrownBy(() -> temperatureAnalyzer.calculateDaysAboveAverage(input))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("Invalid input: null or empty");
+
+    }
+
+    @Test
     void shouldReturnIllegalArgumentExceptionForInvalidInputFormatWhenInputHasLess7Numbers(){
         String input = "2 2 2 2 2 2";
 
