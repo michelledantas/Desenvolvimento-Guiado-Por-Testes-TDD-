@@ -68,4 +68,14 @@ class TemperatureAnalyzerTest {
                 .hasMessage("Invalid input: contains non-numeric values");
 
     }
+
+    @Test
+    void shouldReturnErrorForInvalidInputFormatWhenInputIsEmpty(){
+        String input = "     ";
+
+        assertThatThrownBy(() -> temperatureAnalyzer.calculateDaysAboveAverage(input))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("Invalid input: null or empty");
+
+    }
 }
