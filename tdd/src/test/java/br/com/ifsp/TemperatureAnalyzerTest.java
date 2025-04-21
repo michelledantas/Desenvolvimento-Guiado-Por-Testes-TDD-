@@ -70,7 +70,7 @@ class TemperatureAnalyzerTest {
     }
 
     @Test
-    void shouldReturnErrorForInvalidInputFormatWhenInputIsEmpty(){
+    void shouldReturnIllegalArgumentExceptionForInvalidInputFormatWhenInputIsEmpty(){
         String input = "     ";
 
         assertThatThrownBy(() -> temperatureAnalyzer.calculateDaysAboveAverage(input))
