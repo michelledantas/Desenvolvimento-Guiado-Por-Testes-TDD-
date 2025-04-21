@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.MockitoAnnotations;
 
-import static org.assertj.core.api.AssertionsForClassTypes.assertThatExceptionOfType;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class TemperatureAnalyzerTest {
@@ -20,41 +20,41 @@ class TemperatureAnalyzerTest {
     }
 
     @Test
-    void shouldReturnDaysAboveAverageForValidInputExample1(){
+    void shouldReturnDaysAboveAverageForValidInputExample1() throws Exception {
         String input = "2 2 2 2 2 2 3";
         int expectedResult = 1;
 
-        int result = temperatureAnalyzer.calculateDaysAboveAverage(input);
+        int result = (int) temperatureAnalyzer.calculateDaysAboveAverage(input);
 
         assertEquals(expectedResult, result);
     }
 
     @Test
-    void shouldReturnDaysAboveAverageForValidInputExample2(){
+    void shouldReturnDaysAboveAverageForValidInputExample2() throws Exception {
         String input = "21 10 13 34 30 21 34";
         int expectedResult = 3;
 
-        int result = temperatureAnalyzer.calculateDaysAboveAverage(input);
+        int result = (int) temperatureAnalyzer.calculateDaysAboveAverage(input);
 
         assertEquals(expectedResult, result);
     }
 
     @Test
-    void shouldReturnDaysAboveAverageForValidInputExample3(){
+    void shouldReturnDaysAboveAverageForValidInputExample3() throws Exception {
         String input = "2 2 2 2 2 2 1";
         int expectedResult = 6;
 
-        int result = temperatureAnalyzer.calculateDaysAboveAverage(input);
+        int result = (int) temperatureAnalyzer.calculateDaysAboveAverage(input);
 
         assertEquals(expectedResult, result);
     }
 
     @Test
-    void shouldHandleNegativeTemperaturesCorrectly(){
+    void shouldHandleNegativeTemperaturesCorrectly() throws Exception {
         String input = "-5 -10 0 5 10 15 20";
         int expectedResult = 3;
 
-        int result = temperatureAnalyzer.calculateDaysAboveAverage(input);
+        int result = (int) temperatureAnalyzer.calculateDaysAboveAverage(input);
 
         assertEquals(expectedResult,result);
     }
