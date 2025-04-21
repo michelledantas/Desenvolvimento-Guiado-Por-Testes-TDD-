@@ -78,4 +78,14 @@ class TemperatureAnalyzerTest {
                 .hasMessage("Invalid input: null or empty");
 
     }
+
+    @Test
+    void shouldReturnIllegalArgumentExceptionForInvalidInputFormatWhenInputHasLess7Numbers(){
+        String input = "2 2 2 2 2 2";
+
+        assertThatThrownBy(() -> temperatureAnalyzer.calculateDaysAboveAverage(input))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("Invalid input: must contain exactly 7 values");
+
+    }
 }
